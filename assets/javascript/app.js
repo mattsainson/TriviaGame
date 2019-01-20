@@ -49,7 +49,7 @@ var game = {
     },
     startQuestion: function() {
         //#leftoff
-        //now that we cleared the container div, we need to create the child divs here
+        //now that we cleared the main div, we need to create the child divs here
         console.log('startQuestion');
         game.stopQuestion(); //needed by showRight, showWrong, showTimeout but not needed otherwise
         game.questionIdx++;
@@ -66,18 +66,18 @@ var game = {
         // console.log('showQuestion');
         // console.log('Question: '+this.questions[this.questionIdx].ask);
 
-        $('.container').html(''); //clear out the div containing the clock, question, and options
+        $('.main').html(''); //clear out the div containing the clock, question, and options
 
-        var $div = $('<div>', {id: 'game-clock'});
+        var $div = $('<div>', {id: 'game-clock', 'class': 'game-clock'});
         $div.text('Clock: '+game.clock);
-        $('.container').append($div);
+        $('.main').append($div);
 
-        $div = $('<div>', {id: 'question'});
+        $div = $('<div>', {id: 'question', 'class': 'question'});
         $div.text(this.questions[this.questionIdx].ask); 
-        $('.container').append($div);
+        $('.main').append($div);
 
-        $div = $('<div>', {id: 'options'});
-        $('.container').append($div);
+        $div = $('<div>', {id: 'options', 'class': 'options'});
+        $('.main').append($div);
 
         for(var i=0;i<this.questions[this.questionIdx].options.length;i++) {
             // console.log('Option '+i+': '+this.questions[this.questionIdx].options[i]);
@@ -123,38 +123,38 @@ var game = {
         }
     },
     showRight: function () {
-        $('.container').html(''); //clear out the div containing the clock, question, and options
+        $('.main').html(''); //clear out the div containing the clock, question, and options
         var $h1 = $('<h1>');
-        $h1.text('Congratulations!');
-        $('.container').append($h1);
+        $h1.html('Congratulations!<br>That is correct.');
+        $('.main').append($h1);
         timeoutId = setTimeout(game.startQuestion,1000*3);
     },
     showWrong: function () {
-        $('.container').html(''); //clear out the div containing the clock, question, and options
+        $('.main').html(''); //clear out the div containing the clock, question, and options
         var $h1 = $('<h1>');
-        $h1.text('Sorry, the correct answer is: ');
-        $('.container').append($h1);
+        $h1.html('Sorry, the correct answer is:<br>'+game.questions[game.questionIdx].options[game.questions[game.questionIdx].answer]+'.');
+        $('.main').append($h1);
         timeoutId = setTimeout(game.startQuestion,1000*3);
     },
     showTimeout: function () {
-        $('.container').html(''); //clear out the div containing the clock, question, and options
+        $('.main').html(''); //clear out the div containing the clock, question, and options
         var $h1 = $('<h1>');
-        $h1.text('Sorry, you ran out of time');
-        $('.container').append($h1);
+        $h1.html('Sorry, you ran out of time.');
+        $('.main').append($h1);
         timeoutId = setTimeout(game.startQuestion,1000*3);
     },
     stopGame: function () {
         console.log('stopGame');
-        $('.container').html(''); //clear out the div containing the clock, question, and options
+        $('.main').html(''); //clear out the div containing the clock, question, and options
         var $h1right = $('<h1>');
         $h1right.text('Right: '+this.cntRight);
-        $('.container').append($h1right);
+        $('.main').append($h1right);
         var $h1wrong = $('<h1>');
         $h1wrong.text(`Wrong: ${this.cntWrong}`); //trying template literal syntax
-        $('.container').append($h1wrong);
+        $('.main').append($h1wrong);
         var $h1noanswer = $('<h1>');
         $h1noanswer.text(`No Answer: ${this.cntNoAnswer}`);
-        $('.container').append($h1noanswer);
+        $('.main').append($h1noanswer);
     }
 };
 

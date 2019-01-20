@@ -1,4 +1,71 @@
-body {
-    background: url('../images/multi-color-haze-background.jpg');
-    opacity: .5;
+/* body {
+
+} */
+body { 
+    background: url('../images/good-people-brewery-wide-anglejpg-864b6f629d077431.png') no-repeat center center fixed; 
+    /* -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover; */
+    background-size: cover;
+    /* opacity: .1; */
+    /* background-color: aliceblue; */
+}
+
+.main {
+    height: 300px;
+    min-height: 300px;
+    background-color: rgb(240,255,255,.75);
+    margin-bottom: 15px;
+    text-align: center;
+    padding: 15px;
+    border: none;
+    /*1px grey solid; */
+    align-items: center;
+    margin-top: 15px;
+}
+
+.game-title {
+    background-color: rgb(255,255,255,.75);
+    margin-top: 50px;
+    padding-top: 20px;
+    color: darkblue;
+}
+
+.game-info {
+    background-color:rgb(255,255,255,.75);
+}
+
+.btn-start {
+    margin-top: 15px;
+}
+
+.game-clock {
+    font-size: 36px;
+    color: red;
+    padding: 5px;
+    font-weight: bold;
+    background-color: rgb(240,255,255,.75);
+}
+
+.question {
+    font-size: 24px;
+    padding: 5px;
+    background-color: rgb(240,255,255,.75);
+}
+
+.btn-options {
+    font-size: 18px;
+    padding: 20px;
+    background: lightgoldenrodyellow;
+    margin-right: 5px;
+}
+
+.options {
+    margin-top: 20px;
+    align-content: center;
+}
+
+.zeroout {
+    margin-left: 0px;
+    margin-right: 0px;
 }
